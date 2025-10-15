@@ -54,7 +54,7 @@ const TMDBCarousel = () => {
       {/* Left scrolling carousel */}
       <div className="mb-8 relative overflow-hidden">
         <div className="flex gap-4 animate-slide-left">
-          {moviesLeft.length > 0 && [...moviesLeft, ...moviesLeft].map((movie, index) => (
+          {moviesLeft.length > 0 && [...moviesLeft, ...moviesLeft, ...moviesLeft, ...moviesLeft].map((movie, index) => (
             movie.poster_path && (
               <div
                 key={`left-${movie.id}-${index}`}
@@ -80,7 +80,7 @@ const TMDBCarousel = () => {
       {/* Right scrolling carousel */}
       <div className="relative overflow-hidden">
         <div className="flex gap-4 animate-slide-right">
-          {moviesRight.length > 0 && [...moviesRight, ...moviesRight].map((movie, index) => (
+          {moviesRight.length > 0 && [...moviesRight, ...moviesRight, ...moviesRight, ...moviesRight].map((movie, index) => (
             movie.poster_path && (
               <div
                 key={`right-${movie.id}-${index}`}
