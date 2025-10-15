@@ -111,7 +111,7 @@ const AndroidApps = () => {
                     className="w-full border-primary text-primary hover:bg-primary/10"
                     asChild
                   >
-                    <a href={app.link} target="_blank" rel="noopener noreferrer">
+                    <a href="https://webplay.eliteflix.shop" target="_blank" rel="noopener noreferrer">
                       Ver Demo
                     </a>
                   </Button>
@@ -125,7 +125,7 @@ const AndroidApps = () => {
                   }`}
                   asChild
                 >
-                  <a href={`https://wa.me/44991082160?text=Olá!%20Gostaria%20de%20comprar%20o%20${encodeURIComponent(app.name)}%20por%20${encodeURIComponent(app.price)}`} target="_blank" rel="noopener noreferrer">Comprar App</a>
+                  <a href="https://wa.me/5544991082160?text=Olá%20quero%20saber%20sobre%20o%20App" target="_blank" rel="noopener noreferrer">Comprar App</a>
                 </Button>
               </div>
             </Card>

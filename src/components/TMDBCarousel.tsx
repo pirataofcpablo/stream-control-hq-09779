@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const TMDB_API_KEY = "9049a1d821f51ef88e70e430d10298c5";
 const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
@@ -43,7 +45,7 @@ const TMDBCarousel = () => {
   }, []);
 
   return (
-    <section className="py-20 overflow-hidden bg-card/20">
+    <section className="py-20 bg-card/20">
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Biblioteca <span className="gradient-text">completa</span> de conteúdo
@@ -51,55 +53,93 @@ const TMDBCarousel = () => {
         <p className="text-muted-foreground">Milhares de filmes e séries disponíveis</p>
       </div>
 
-      {/* Left scrolling carousel */}
-      <div className="mb-8 relative overflow-hidden">
-        <div className="flex gap-4 animate-slide-left">
-          {moviesLeft.length > 0 && [...moviesLeft, ...moviesLeft, ...moviesLeft, ...moviesLeft].map((movie, index) => (
-            movie.poster_path && (
-              <div
-                key={`left-${movie.id}-${index}`}
-                className="flex-shrink-0 w-40 cursor-pointer transform hover:scale-110 transition-transform"
-                onClick={() => setSelectedMovie(movie)}
-              >
-                <img
-                  src={`${TMDB_IMAGE_BASE}${movie.poster_path}`}
-                  alt={movie.title}
-                  className="w-full rounded-lg shadow-lg"
-                  loading="lazy"
-                />
-                <div className="mt-2 text-sm font-medium truncate">{movie.title}</div>
-                {movie.vote_average > 0 && (
-                  <div className="text-xs text-primary">⭐ {movie.vote_average.toFixed(1)}</div>
-                )}
-              </div>
-            )
-          ))}
+      <div className="container mx-auto px-4">
+        {/* First carousel */}
+        <div className="mb-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {moviesLeft.length > 0 && moviesLeft.map((movie) => (
+                movie.poster_path && (
+                  <CarouselItem key={movie.id} className="pl-2 md:pl-4 basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6">
+                    <div
+                      className="cursor-pointer transform hover:scale-105 transition-transform"
+                      onClick={() => setSelectedMovie(movie)}
+                    >
+                      <div className="relative aspect-[2/3] w-full rounded-lg overflow-hidden shadow-lg">
+                        <img
+                          src={`${TMDB_IMAGE_BASE}${movie.poster_path}`}
+                          alt={movie.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="mt-2 text-sm font-medium truncate">{movie.title}</div>
+                      {movie.vote_average > 0 && (
+                        <div className="text-xs text-primary">⭐ {movie.vote_average.toFixed(1)}</div>
+                      )}
+                    </div>
+                  </CarouselItem>
+                )
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
-      </div>
 
-      {/* Right scrolling carousel */}
-      <div className="relative overflow-hidden">
-        <div className="flex gap-4 animate-slide-right">
-          {moviesRight.length > 0 && [...moviesRight, ...moviesRight, ...moviesRight, ...moviesRight].map((movie, index) => (
-            movie.poster_path && (
-              <div
-                key={`right-${movie.id}-${index}`}
-                className="flex-shrink-0 w-40 cursor-pointer transform hover:scale-110 transition-transform"
-                onClick={() => setSelectedMovie(movie)}
-              >
-                <img
-                  src={`${TMDB_IMAGE_BASE}${movie.poster_path}`}
-                  alt={movie.title}
-                  className="w-full rounded-lg shadow-lg"
-                  loading="lazy"
-                />
-                <div className="mt-2 text-sm font-medium truncate">{movie.title}</div>
-                {movie.vote_average > 0 && (
-                  <div className="text-xs text-primary">⭐ {movie.vote_average.toFixed(1)}</div>
-                )}
-              </div>
-            )
-          ))}
+        {/* Second carousel */}
+        <div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3500,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {moviesRight.length > 0 && moviesRight.map((movie) => (
+                movie.poster_path && (
+                  <CarouselItem key={movie.id} className="pl-2 md:pl-4 basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6">
+                    <div
+                      className="cursor-pointer transform hover:scale-105 transition-transform"
+                      onClick={() => setSelectedMovie(movie)}
+                    >
+                      <div className="relative aspect-[2/3] w-full rounded-lg overflow-hidden shadow-lg">
+                        <img
+                          src={`${TMDB_IMAGE_BASE}${movie.poster_path}`}
+                          alt={movie.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="mt-2 text-sm font-medium truncate">{movie.title}</div>
+                      {movie.vote_average > 0 && (
+                        <div className="text-xs text-primary">⭐ {movie.vote_average.toFixed(1)}</div>
+                      )}
+                    </div>
+                  </CarouselItem>
+                )
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </div>
 
