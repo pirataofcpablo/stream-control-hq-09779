@@ -45,7 +45,7 @@ const ServerPlans = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
           {plans.map((plan) => (
             <Card
               key={plan.name}

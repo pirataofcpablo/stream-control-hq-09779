@@ -37,33 +37,33 @@ const Hero = () => {
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white font-bold text-lg h-14 px-8"
+              className="bg-primary hover:bg-primary/90 text-white font-bold text-base sm:text-lg h-12 sm:h-14 px-4 sm:px-8"
               asChild
             >
               <a href="https://wa.me/5544991082160?text=Olá!%20Tenho%20interesse%20no%20DRM%20OTT%20V4%20(R$1.800)." target="_blank" rel="noopener noreferrer">
-                Comprar DRM OTT V4 — R$ 1.800
+                DRM OTT V4 — R$ 1.800
               </a>
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-primary text-primary hover:bg-primary/10 font-bold text-lg h-14 px-8"
+              className="border-primary text-primary hover:bg-primary/10 font-bold text-base sm:text-lg h-12 sm:h-14 px-4 sm:px-8"
               asChild
             >
               <a href="https://wa.me/5544991082160?text=Olá!%20Tenho%20interesse%20no%20Sistema%20de%20VOD%20(R$1.100)." target="_blank" rel="noopener noreferrer">
-                Comprar Sistema VOD — R$ 1.100
+                Sistema VOD — R$ 1.100
               </a>
             </Button>
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-bold text-lg h-14 px-8"
+              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-bold text-base sm:text-lg h-12 sm:h-14 px-4 sm:px-8"
               asChild
             >
               <a href="https://wa.me/5544991082160?text=Olá!%20Quero%20o%20Combo%20Patrão%20(DRM%20OTT%20V4%20+%20VOD%20+%20Instalação%20e%20Suporte)." target="_blank" rel="noopener noreferrer">
-                Comprar Combo Patrão — R$ 2.500
+                Combo Patrão — R$ 2.500
               </a>
             </Button>
           </div>

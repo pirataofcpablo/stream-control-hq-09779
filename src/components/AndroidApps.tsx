@@ -70,13 +70,13 @@ const AndroidApps = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
           {apps.map((app) => (
             <Card
               key={app.name}
               className={`p-6 space-y-4 transition-all hover:scale-105 ${
                 app.highlighted
-                  ? 'gradient-border md:col-span-2 lg:col-span-2'
+                  ? 'gradient-border'
                   : 'bg-card border-border'
               }`}
             >
